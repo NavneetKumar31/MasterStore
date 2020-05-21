@@ -1,0 +1,33 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="header">
+      <span class="title">Master Store |</span>
+      <span class="subtitle">Login</span>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
+      <div class="content">
+        <mat-form-field>
+          <mat-label>Email/Phone</mat-label>
+          <input matInput placeholder="email or phone" formControlName="username" value="">
+          <mat-error *ngIf="f.username.hasError('required')">
+            Username is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput class="pwd-input" placeholder="password" formControlName="password" value="">
+          <mat-error *ngIf="f.password.hasError('required')">
+            Password is <strong>required</strong>.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="footer">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">login</button>
+        <!-- <button mat-raised-button color="accent" (click)="routeTo('/register');">register</button> -->
+      </div>
+    </form>
+  </div>
+</div>

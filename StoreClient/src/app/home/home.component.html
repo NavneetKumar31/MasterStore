@@ -1,0 +1,81 @@
+<ng-template [ngIf]="modalStatus">
+  <div class="my-modal-container">
+    <button mat-icon-button class="btn icon-btn close-btn" (click)="toggleModal();">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="my-modal-card my-modal-xl">
+      <div class="content">
+        <app-product-preview [product]="selectedProduct"></app-product-preview>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<div class="home-container">
+  <div class="banner-wrapper">
+    <figure class="img_placeholder banner">
+      <!-- <img src="" alt=""> -->
+    </figure>
+  </div>
+
+  <div class="category-container">
+    <ng-container *ngFor="let category of categories">
+      <div class="category-wrapper">
+        <div class="title">
+          <span style="cursor: pointer;"
+            (click)="routeTo('products/' + category?.name )">{{ category?.name |titlecase }}</span>
+          <a class="more" (click)="routeTo('products/' + category?.name )">show more</a>
+        </div>
+        <div class="horizontal-scroll">
+          <ng-container *ngFor="let product of products">
+            <ng-template [ngIf]="category?.name === product?.category">
+              <div class="card product-card">
+                <div class="header">
+                  <p class="title">{{ product?.name }}</p>
+                </div>
+
+                <div class="hover-btn-panel">
+                  <button mat-icon-button>
+                    <mat-icon>favorite_border</mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon>share</mat-icon>
+                  </button>
+                </div>
+
+                <img class="card-img" (click)="previewProduct(product);" [src]="product?.image" [alt]="product.name">
+                <div class="content">
+                  <div class="half-panel">
+                    <p class="label">Actual Price:</p>
+                    <p class="original-price">&#x20B9; {{ product?.mrp |number : '1.1-2' }}</p>
+                  </div>
+
+                  <div class="half-panel">
+                    <p class="label">Discount:</p>
+                    <p class="discount">{{ product?.discount + '%' }}</p>
+                  </div>
+
+                  <div class="full-panel">
+                    <span class="label">Our Price:</span>
+                    <span class="our-price">
+                      &#x20B9;
+                      {{ product?.sellingPrice |number : '1.1-2' }}
+                    </span>
+                  </div>
+                </div>
+                <div class="footer">
+                  <button mat-button class="btn basic-btn cart-btn">
+                    <img [src]="iconPath + '2703080 - basket cart ecommerce shop.png'" alt="">
+                    add in cart
+                  </button>
+                  <button mat-button class="btn basic-btn buy-btn" (click)="childRouteTo('orders', 'create-order');">buy
+                    now</button>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

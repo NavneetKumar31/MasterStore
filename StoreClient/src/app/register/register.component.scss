@@ -1,0 +1,45 @@
+.register-container {
+  .register-card {
+    margin: 0 auto !important;
+
+    .header {
+      border-bottom: 1px solid #eee;
+      text-align: center;
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        text-transform: none;
+      }
+    }
+
+    .register-form {
+      .content {
+        padding: 1rem;
+
+        mat-form-field {
+          width: 100%;
+
+          .pwd-input {
+            -webkit-text-security: square;
+          }
+        }
+      }
+    }
+
+    .footer {
+      text-align: center;
+
+      button {
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

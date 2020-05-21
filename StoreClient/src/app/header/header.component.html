@@ -1,0 +1,113 @@
+<ng-template [ngIf]="loginModal">
+  <div class="my-modal-container">
+    <button mat-icon-button class="btn icon-btn close-btn" (click)="toggleModal();">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <!-- <mat-icon class="close-btn" (click)="toggleModal();">close</mat-icon> -->
+    <div class="my-modal-card my-modal-lg">
+      <div class="content">
+        <div class="row">
+          <div class="col-7">
+            <div class="col-wrapper register-wrapper">
+              <app-register></app-register>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="col-wrapper">
+              <app-login></app-login>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary my-header">
+  <button mat-icon-button class="btn icon-btn" [matMenuTriggerFor]="menu">
+    <img [src]="assetsPath + '2931181 - checklist lines list menu navigation.png'" alt="">
+  </button>
+
+  <a class="navbar-brand" routerLink="/">{{ 'master store' |titlecase }}</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <div class="search-panel navbar-nav mr-auto">
+      <input type="text" placeholder="Search items here..." />
+      <button mat-raised-button class="btn raised-btn">
+        <img [src]="assetsPath + '3209462 - glass inspect look magnify search.png'" alt="">
+        <span>search</span>
+      </button>
+    </div>
+
+    <div class="my-2 my-lg-0">
+      <ng-container *ngIf="isLoggedIn; else elseTemplate">
+        <button mat-raised-btn class="btn raised-btn" [matMenuTriggerFor]="userMenu">
+          <img [src]="assetsPath + '2703062 - account profile user.png'" alt="">
+          admin
+        </button>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <button mat-raised-btn class="btn raised-btn" (click)="toggleModal();">
+          <img [src]="assetsPath + '3005767 - account door enter login.png'" alt="">
+          login
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</nav>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item class="menu-btn" (click)="routeTo('cart');">
+    <img [src]="assetsPath + '2703080 - basket cart ecommerce shop.png'" alt="">
+    <span>my cart</span>
+  </button>
+  <button mat-menu-item class="menu-btn">
+    <img [src]="assetsPath + '2703062 - account profile user.png'" alt="">
+    <span>profile</span>
+  </button>
+  <button mat-menu-item class="menu-btn" (click)="signOut();">
+    <img [src]="assetsPath + '3005766 - account door exit logout.png'" alt="">
+    <span>sign out</span>
+  </button>
+</mat-menu>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item class="menu-btn" [matMenuTriggerFor]="electronics">electronics</button>
+  <button mat-menu-item class="menu-btn" [matMenuTriggerFor]="clothes">clothes</button>
+  <button mat-menu-item class="menu-btn" [matMenuTriggerFor]="beauty">beauty</button>
+  <button mat-menu-item class="menu-btn" [matMenuTriggerFor]="furniture">furniture</button>
+</mat-menu>
+
+<mat-menu #electronics="matMenu">
+  <button mat-menu-item class="menu-btn">living room</button>
+  <button mat-menu-item class="menu-btn">bedroom</button>
+  <button mat-menu-item class="menu-btn">kitchen</button>
+  <button mat-menu-item class="menu-btn">bathroom</button>
+  <button mat-menu-item class="menu-btn">garden</button>
+</mat-menu>
+
+<mat-menu #clothes="matMenu">
+  <button mat-menu-item class="menu-btn">men</button>
+  <button mat-menu-item class="menu-btn">women</button>
+  <button mat-menu-item class="menu-btn">kids</button>
+</mat-menu>
+
+<mat-menu #beauty="matMenu">
+  <button mat-menu-item class="menu-btn">men</button>
+  <button mat-menu-item class="menu-btn">women</button>
+  <button mat-menu-item class="menu-btn">kids</button>
+</mat-menu>
+
+<mat-menu #furniture="matMenu">
+  <button mat-menu-item class="menu-btn">living room</button>
+  <button mat-menu-item class="menu-btn">bedroom</button>
+  <button mat-menu-item class="menu-btn">kitchen</button>
+  <button mat-menu-item class="menu-btn">bathroom</button>
+  <button mat-menu-item class="menu-btn">garden</button>
+</mat-menu>

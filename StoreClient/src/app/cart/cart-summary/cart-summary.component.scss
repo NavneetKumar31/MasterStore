@@ -1,0 +1,41 @@
+@import '../../../assets/External_Resources/variable.scss';
+
+.cart-summary-container {
+  position: relative;
+  width: 100%;
+
+  .cart-summary-wrapper {
+    position: absolute;
+    right: 0;
+    width: 30%;
+    border: 1px solid #eee;
+
+    .title {
+      background-color: #eee;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .summary-panel {
+      padding: 1rem;
+
+      p {
+        .quantity {
+          float: right;
+          text-align: right;
+        }
+      }
+
+      .total {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background-color: $primaryColor;
+      color: #fff;
+    }
+  }
+}

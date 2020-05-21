@@ -1,0 +1,59 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="header">
+      <span class="title">Register |</span>
+      <span class="subtitle">If you are new then first register yourself.</span>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="register-form">
+      <div class="content">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="name" formControlName="name" value="">
+          <mat-error *ngIf="f.name.hasError('required')">
+            Name is <strong>required</strong>.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email" formControlName="email" value="">
+          <mat-error *ngIf="f.email.hasError('required')">
+            Email is <strong>required</strong>.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Mobile</mat-label>
+          <input matInput placeholder="mobile" formControlName="mobile" value="">
+          <mat-error *ngIf="f.mobile.hasError('required')">
+            Mobile is <strong>required</strong>.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput class="pwd-input" placeholder="password" formControlName="password" value="">
+          <mat-error *ngIf="f.password.hasError('required')">
+            Password is <strong>required</strong>.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input matInput class="pwd-input" placeholder="confirm password" formControlName="confirmPassword" value="">
+          <mat-error *ngIf="f.confirmPassword.hasError('required')">
+            Password is <strong>required</strong>.
+          </mat-error>
+          <mat-error *ngIf="f.confirmPassword.hasError('confirmedValidator')">
+            Confirm password doesn't <strong>match</strong>.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="footer">
+        <button type="submit" mat-raised-button color="primary" [disabled]="!registerForm.valid">register</button>
+      </div>
+    </form>
+  </div>
+</div>

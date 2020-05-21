@@ -1,0 +1,124 @@
+<ng-template [ngIf]="modalStatus">
+  <div class="my-modal-container">
+    <button mat-icon-button class="btn icon-btn close-btn" (click)="toggleModal();">
+      <mat-icon>close</mat-icon>
+    </button>
+    <div class="my-modal-card my-modal-xl">
+      <div class="content">
+        <app-product-preview [product]="selectedProduct"></app-product-preview>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<div class="product-list-container">
+  <mat-drawer-container class="sidenav-container">
+    <mat-drawer mode="side" opened class="sidenav">
+      <app-product-filter></app-product-filter>
+    </mat-drawer>
+    <mat-drawer-content class="sidenav-content">
+      <mat-toolbar class="my-toolbar category-toolbar">{{ category |titlecase }}</mat-toolbar>
+      <div class="product-list-wrapper">
+        <ul class="product-list">
+          <ng-container *ngFor="let product of products">
+            <li class="product-list-item">
+              <div class="item-container">
+                <article class="item-wrapper">
+                  <section class="img-section">
+                    <figure>
+                      <img [src]="product?.image" [alt]="product?.name">
+                      <figcaption> <strong>{{ 'Tags: ' }}</strong> {{ product?.tags |titlecase }}</figcaption>
+                    </figure>
+                  </section>
+                  <section class="info-panel">
+                    <p class="title">{{ product?.name }}</p>
+                    <p class="subtitle">by {{ product?.brandName }}</p>
+                    <ul class="details-list">
+                      <li class="details-list-item">{{ product?.details }}</li>
+                    </ul>
+                  </section>
+                  <section class="price-panel">
+                    <div class="btn-panel">
+                      <button mat-icon-button>
+                        <mat-icon>share</mat-icon>
+                      </button>
+                      <button mat-icon-button>
+                        <mat-icon>favorite_border</mat-icon>
+                      </button>
+                    </div>
+                    <div class="price">
+                      <p class="actual-price">
+                        <span style="padding-right: 0.5rem;border-right: 1px solid #ccc;">MRP: {{ product?.mrp }}
+                        </span>
+                        <span>Discount: {{ product?.discount }}% </span>
+                      </p>
+                      <p style="margin-bottom: 0.1rem;">Our Price</p>
+                      <p class="final-price">
+                        &#x20B9;
+                        {{ product.sellingPrice |number : '1.1-2' }}
+                      </p>
+                    </div>
+                    <div class="buying-panel">
+                      <button mat-raised-button class="btn raised-btn preview-btn"
+                        (click)="previewProduct(product);">Preview</button>
+                      <button mat-icon-button class="btn icon-btn buy-btn">
+                        <img [src]="iconPath + '2703080 - basket cart ecommerce shop.png'" alt="">
+                      </button>
+                    </div>
+                  </section>
+                </article>
+              </div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <!-- <div class="row">
+        <ng-container *ngFor="let product of products">
+          <div class="col-3">
+            <div class="col-wrapper">
+              <div class="card product-card">
+                <div class="header">
+                  <p class="title">{{ product?.name }}</p>
+                  <p class="subtitle">{{ product?.brandName }}</p>
+                </div>
+
+                <div class="hover-btn-panel">
+                  <button mat-icon-button>
+                    <mat-icon>favorite_border</mat-icon>
+                  </button>
+                  <button mat-icon-button>
+                    <mat-icon>share</mat-icon>
+                  </button>
+                </div>
+
+                <img class="card-img" [src]="product?.image" [alt]="product.name">
+                <div class="content">
+                  <div class="half-panel">
+                    <p class="label">Actual Price:</p>
+                    <p class="original-price">&#x20B9; {{ product?.sellingPrice }}</p>
+                  </div>
+
+                  <div class="half-panel">
+                    <p class="label">Discount:</p>
+                    <p class="discount">{{ product?.discount + '%' }}</p>
+                  </div>
+
+                  <div class="full-panel">
+                    <span class="label">Our Price:</span>
+                    <span class="our-price">
+                      &#x20B9; {{ product?.sellingPrice - (product?.sellingPrice * product?.discount / 100) }}
+                    </span>
+                  </div>
+                </div>
+                <div class="footer">
+                  <button mat-button class="btn basic-btn cart-btn">view details</button>
+                  <button mat-button class="btn basic-btn buy-btn">buy now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div> -->
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

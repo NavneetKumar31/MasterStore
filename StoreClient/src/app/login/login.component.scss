@@ -1,0 +1,40 @@
+.login-container {
+  .login-card {
+    margin: 0 auto !important;
+
+    .header {
+      border-bottom: 1px solid #eee;
+      text-align: center;
+
+      .title {
+        font-size: 1.5rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .login-form {
+      .content {
+        padding: 1rem;
+
+        mat-form-field {
+          width: 100%;
+
+          .pwd-input {
+            -webkit-text-security: square;
+          }
+        }
+      }
+    }
+
+    .footer {
+      button {
+        width: 100%;
+        font-size: 1rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

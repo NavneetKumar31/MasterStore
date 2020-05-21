@@ -1,0 +1,48 @@
+<div class="filter-container">
+  <mat-accordion class="filter-accordion">
+    <mat-expansion-panel class="filter-expansion-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Category
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <ul class="filter-list">
+        <ng-container *ngFor="let category of categories">
+          <li class="filter-list-item">{{ category?.name |titlecase }}</li>
+        </ng-container>
+      </ul>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="filter-expansion-panel" (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Tags
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-selection-list class="filter-selection-list">
+        <mat-list-option *ngFor="let category of categories" class="filter-selection-list-item">
+          {{ category?.name |titlecase }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="filter-expansion-panel" (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Price
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <mat-selection-list class="filter-selection-list">
+        <mat-list-option *ngFor="let price of ['0-1000', '1001-5000', '5001-10000', '10001+']"
+          class="filter-selection-list-item">
+          {{ price }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

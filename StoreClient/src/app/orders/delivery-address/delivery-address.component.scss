@@ -1,0 +1,40 @@
+.delivery-address-container {
+  .wrapper {
+    .address-card {
+      .header {
+        background-color: #eee;
+        padding: 0.5rem !important;
+
+        .title {
+          background-color: transparent;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+        }
+      }
+
+      .content {
+        position: relative;
+        padding: 1rem;
+
+        &:hover {
+          .btn-grp {
+            display: block;
+          }
+        }
+
+        .btn-grp {
+          display: none;
+          position: absolute;
+          right: 0.5rem;
+          top: 0.5rem;
+
+          button {
+            display: block;
+            margin: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}

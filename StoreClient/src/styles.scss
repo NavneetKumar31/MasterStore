@@ -1,0 +1,406 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import './assets/External_Resources/variable.scss';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+
+  .col,
+  .col-1,
+  .col-10,
+  .col-11,
+  .col-12,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-auto,
+  .col-lg,
+  .col-lg-1,
+  .col-lg-10,
+  .col-lg-11,
+  .col-lg-12,
+  .col-lg-2,
+  .col-lg-3,
+  .col-lg-4,
+  .col-lg-5,
+  .col-lg-6,
+  .col-lg-7,
+  .col-lg-8,
+  .col-lg-9,
+  .col-lg-auto,
+  .col-md,
+  .col-md-1,
+  .col-md-10,
+  .col-md-11,
+  .col-md-12,
+  .col-md-2,
+  .col-md-3,
+  .col-md-4,
+  .col-md-5,
+  .col-md-6,
+  .col-md-7,
+  .col-md-8,
+  .col-md-9,
+  .col-md-auto,
+  .col-sm,
+  .col-sm-1,
+  .col-sm-10,
+  .col-sm-11,
+  .col-sm-12,
+  .col-sm-2,
+  .col-sm-3,
+  .col-sm-4,
+  .col-sm-5,
+  .col-sm-6,
+  .col-sm-7,
+  .col-sm-8,
+  .col-sm-9,
+  .col-sm-auto,
+  .col-xl,
+  .col-xl-1,
+  .col-xl-10,
+  .col-xl-11,
+  .col-xl-12,
+  .col-xl-2,
+  .col-xl-3,
+  .col-xl-4,
+  .col-xl-5,
+  .col-xl-6,
+  .col-xl-7,
+  .col-xl-8,
+  .col-xl-9,
+  .col-xl-auto {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+}
+
+button,
+ul,
+li,
+input {
+  outline: none !important;
+
+  &:focus,
+  &:active {
+    outline: none !important;
+  }
+}
+
+.btn {
+  text-transform: capitalize;
+  background-color: #fff;
+  color: #695959;
+  font-weight: 400;
+
+  &:hover {
+    background-color: #eee;
+    color: $primaryColor;
+    border: 1px solid $primaryColor;
+  }
+}
+
+.raised-btn {
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+
+  img {
+    height: 1.2rem;
+    margin-right: 0.3rem;
+    vertical-align: sub !important;
+  }
+}
+
+.basic-btn {
+  letter-spacing: 0.05rem;
+  padding: 0.5rem 1rem;
+
+  img {
+    height: 1.2rem;
+    vertical-align: sub !important;
+  }
+}
+
+.icon-btn {
+  border-radius: 5px !important;
+  // border: 1px solid #000 !important;
+  height: 38px !important;
+  width: 38px !important;
+
+  mat-icon {
+    font-size: 20px;
+    line-height: 20px !important;
+  }
+
+  img {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.img_placeholder {
+  background-color: #ccc;
+}
+
+.banner {
+  height: 300px;
+}
+
+.category-container {
+  padding: 1rem 0.5rem;
+
+  .category-wrapper {
+    margin-bottom: 1rem;
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      text-transform: capitalize;
+      text-align: center;
+      background-color: #eeeeeead;
+      border-radius: 5px;
+      padding: 0.3rem 0;
+      margin: 0;
+      position: relative;
+
+      .more {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
+
+    .horizontal-scroll {
+      width: 98%;
+      margin: 0 auto;
+      overflow: auto;
+      padding: 0.5rem 0;
+      white-space: nowrap;
+    }
+  }
+}
+
+.product-card {
+  display: inline-block;
+  max-width: 300px;
+  max-height: 450px;
+  margin-right: 0.5rem;
+  position: relative;
+
+  &:hover {
+    .hover-btn-panel {
+      display: block;
+    }
+  }
+
+  .header {
+    padding: 0.3rem 1rem !important;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .title,
+    .subtitle {
+      white-space: nowrap;
+      width: 95%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .hover-btn-panel {
+    display: none;
+    position: absolute;
+    top: 3.2rem;
+    right: 5px;
+  }
+
+  .content {
+    .half-panel {
+      width: 50%;
+      display: inline-block;
+
+      p {
+        text-align: center;
+        margin: 0;
+        font-size: 13px;
+        padding: 0.1rem 0;
+      }
+
+      .original-price {
+        text-decoration: line-through;
+        font-size: 15px;
+        font-style: italic;
+      }
+    }
+
+    .full-panel {
+      border-top: 1px solid #eee;
+      padding: 0.5rem 0;
+      text-align: center;
+      font-size: 15px;
+
+      .our-price {
+        font-size: 17px;
+        color: blue;
+        font-style: italic;
+      }
+    }
+  }
+
+  .footer {
+    .cart-btn {
+      width: 60%;
+    }
+
+    .buy-btn {
+      width: 40%;
+    }
+  }
+}
+
+.card {
+  .header {
+    padding: 0.5rem 1rem;
+
+    .title {
+      background-color: #fff;
+      font-size: 1rem;
+      text-transform: capitalize;
+    }
+
+    .subtitle {
+      font-size: 0.8rem;
+      text-transform: capitalize;
+    }
+  }
+
+  .card-img {
+    height: 220px;
+    max-width: 100%;
+  }
+
+  .footer {
+    margin-top: 0.5rem;
+  }
+}
+
+.my-modal-container {
+  position: absolute;
+  z-index: 1000;
+  background-color: #1f1d1d69;
+  height: 100vh;
+  width: 100vw;
+  padding: 4rem;
+
+  .my-modal-card {
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+.my-toolbar {
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+
+// modal css
+.my-modal-container {
+  position: fixed;
+  top: 0rem;
+  width: 100%;
+  background-color: #00000075;
+  height: 100%;
+  z-index: 1000;
+
+  .my-modal-xl {
+    width: 95% !important;
+  }
+
+  .my-modal-lg {
+    width: 75% !important;
+  }
+
+  .my-modal-md {
+    width: 55% !important;
+  }
+
+  .my-modal-sm {
+    width: 35% !important;
+  }
+
+  .my-modal-card {
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 1rem;
+    border-radius: 5px;
+
+    .header {
+      position: relative;
+      padding: 0.5rem 1.5rem;
+      border-bottom: 1px solid #eee;
+
+      .title {
+        margin: 0;
+        padding: 0;
+        font-size: 1.8rem;
+      }
+
+      mat-icon {
+        position: absolute;
+        right: 1.5rem;
+        top: 1rem;
+        font-size: 28px;
+        cursor: pointer;
+      }
+    }
+
+    .content {
+      padding: 0.5rem;
+    }
+
+    .footer {
+      padding: 0.5rem 1rem;
+      border-top: 1px solid #eee;
+    }
+  }
+}
+
+.my-table-container {
+  .search-field {
+    width: 100%;
+  }
+
+  .table-wrapper {
+    table {
+      width: 100%;
+
+      th {
+        text-transform: capitalize;
+      }
+    }
+  }
+}

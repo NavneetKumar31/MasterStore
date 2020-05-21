@@ -1,0 +1,41 @@
+.filter-container {
+  padding: 1rem;
+
+  .filter-accordion {
+    background-color: #eee;
+
+    .filter-expansion-panel {
+      background-color: #eee;
+
+      mat-expansion-panel-header {
+        border-bottom: 1px solid #ccc;
+      }
+
+      ::ng-deep .mat-expansion-panel-body {
+        background-color: #fff;
+        padding: 0;
+      }
+
+      .filter-list {
+        margin: 0;
+        padding: 0.2rem;
+        list-style-type: none;
+
+        .filter-list-item {
+          padding: 0.5rem;
+          border-bottom: 1px solid #eee;
+          font-size: 14px;
+        }
+      }
+
+      .filter-selection-list {
+        padding: 0;
+
+        .filter-selection-list-item {
+          border-bottom: 1px solid #eee;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

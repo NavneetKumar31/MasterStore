@@ -1,0 +1,41 @@
+<div class="product-preview-container">
+  <div class="row">
+    <div class="col-5">
+      <figure class="product-img-container">
+        <img [src]="product?.image" [alt]="product?.name">
+        <figcaption> <strong>{{ 'Tags: ' }}</strong> {{ product?.tags |titlecase }}</figcaption>
+      </figure>
+    </div>
+    <div class="col-7">
+      <div class="product-wrapper">
+        <p class="product-name">{{ product?.name |titlecase }}</p>
+        <p class="product-brand">by {{ product?.brandName |uppercase }}</p>
+        <p class="product-details"> <strong>Description:</strong> {{ product?.details }}</p>
+        <ul class="feature-list">
+          <ng-container *ngFor="let feature of product?.features">
+            <li class="feature-list-item">{{ feature }}</li>
+          </ng-container>
+        </ul>
+        <p class="price-actual">
+          MRP: &#x20B9;{{ product?.mrp |number : '1.1-2' }}
+        </p>
+        <p class="discount">
+          Discount: {{ product?.discount }}%
+        </p>
+        <p class="price-final">
+          Our Price: <span>&#x20B9;
+            {{ product?.sellingPrice |number : '1.1-2' }}</span>
+        </p>
+        <div class="btn-grp">
+          <button mat-raised-button class="btn raised-btn cart">
+            add to cart
+            <img [src]="iconPath + '2703080 - basket cart ecommerce shop.png'" alt="">
+          </button>
+          <button mat-raised-button class="btn raised-btn buy">
+            buy now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

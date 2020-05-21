@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "result": [{
+      "name": "electronics"
+    },
+    {
+      "name": "furniture"
+    },
+    {
+      "name": "clothes"
+    },
+    {
+      "name": "beauty"
+    }
+  ]
+}
